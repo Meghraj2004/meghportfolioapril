@@ -46,7 +46,7 @@ const NavBar: React.FC = () => {
               navigateToSection('hero');
             }}
           >
-            Megharaj<span className="text-primary-light">.</span>
+            Megharaj<span className="text-primary-light"></span>
           </a>
           
           {/* Desktop Navigation */}
