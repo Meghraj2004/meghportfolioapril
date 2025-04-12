@@ -11,7 +11,8 @@ interface Project {
     bgColor: string;
   }>;
   image: JSX.Element;
-  repoUrl: string; // Added repoUrl field
+  repoUrl: string;
+  demoUrl: string; // Added demoUrl field
 }
 
 const ProjectsSection: React.FC = () => {
@@ -38,7 +39,8 @@ const ProjectsSection: React.FC = () => {
           <rect x="380" y="240" width="150" height="40" rx="5" fill="#1E40AF" />
         </svg>
       ),
-      repoUrl: 'https://github.com/Meghraj2004/mensfyt' // Specific repo for MensFyt
+      repoUrl: 'https://github.com/Meghraj2004/mensfyt',
+      demoUrl: 'https://mensfyt.com/?srsltid=AfmBOooPgTyNZCdc-UlUGl2YSRbm5K_9KITJu28azFTudfp1Guf2TNZz' // Replace with actual demo URL
     },
     {
       title: 'Graphical Password Authentication',
@@ -63,7 +65,8 @@ const ProjectsSection: React.FC = () => {
           <rect x="350" y="280" width="100" height="30" rx="15" fill="#1E40AF" />
         </svg>
       ),
-      repoUrl: 'https://github.com/Meghraj2004/graphical-password-authentication' // Specific repo for Graphical Password Authentication
+      repoUrl: 'https://github.com/Meghraj2004/graphical-password-authentication',
+      demoUrl: 'https://github.com/Meghraj2004/graphical-password-authentication' // Replace with actual demo URL
     },
     {
       title: 'Restaurant Reservation System',
@@ -89,9 +92,9 @@ const ProjectsSection: React.FC = () => {
           <rect x="380" y="240" width="150" height="40" rx="5" fill="#1E40AF" />
         </svg>
       ),
-      repoUrl: 'https://github.com/Meghraj2004/meghresto' // Specific repo for Restaurant Reservation System
+      repoUrl: 'https://github.com/Meghraj2004/meghresto',
+      demoUrl: 'https://meghresto.onrender.com/' // Replace with actual demo URL
     },
-    ,
     {
       title: 'Disaster Response Platform',
       description: 'Real-time platform for coordinating shelters and volunteers during emergency situations with interactive mapping and resource management.',
@@ -114,7 +117,8 @@ const ProjectsSection: React.FC = () => {
           <circle cx="580" cy="150" r="30" fill="#F59E0B" />
         </svg>
       ),
-      repoUrl: 'https://github.com/Meghraj2004/Avinya-3.0' // Specific repo for Disaster Response Platform
+      repoUrl: 'https://github.com/Meghraj2004/Avinya-3.0',
+      demoUrl: 'https://github.com/Meghraj2004/Avinya-3.0' // Replace with actual demo URL
     },
     {
       title: 'Bookverse',
@@ -138,7 +142,8 @@ const ProjectsSection: React.FC = () => {
           <rect x="380" y="240" width="150" height="40" rx="5" fill="#1E40AF" />
         </svg>
       ),
-      repoUrl: 'https://github.com/Meghraj2004/bookverse' // Specific repo for Bookverse
+      repoUrl: 'https://github.com/Meghraj2004/bookverse',
+      demoUrl: 'https://bookverse-wine.vercel.app' // Replace with actual demo URL
     },
     {
       title: 'Blogspace',
@@ -160,7 +165,8 @@ const ProjectsSection: React.FC = () => {
           <rect x="550" y="320" width="100" height="30" rx="5" fill="#1E40AF" />
         </svg>
       ),
-      repoUrl: 'https://github.com/Meghraj2004/blogspace' // Specific repo for Blogspace
+      repoUrl: 'https://github.com/Meghraj2004/blogspace',
+      demoUrl: 'https://blogspace-1-2af1.onrender.com/' // Replace with actual demo URL
     }
   ];
 
@@ -175,11 +181,11 @@ const ProjectsSection: React.FC = () => {
   };
 
   const itemVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
-      y: 30 
+      y: 30
     },
-    visible: { 
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
@@ -206,8 +212,8 @@ const ProjectsSection: React.FC = () => {
             As a frontend developer, I've created engaging user interfaces and interactive experiences for various applications. Here are some highlighted projects:
           </p>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -215,7 +221,7 @@ const ProjectsSection: React.FC = () => {
           viewport={{ once: true }}
         >
           {projects.map((project, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               className="project-card bg-background-surface rounded-xl overflow-hidden border border-gray-800 card-hover"
               variants={itemVariants}
@@ -228,26 +234,42 @@ const ProjectsSection: React.FC = () => {
                 <p className="text-gray-400 mb-4">
                   {project.description}
                 </p>
-                
+
                 <div className="mb-4 bg-background-card p-3 rounded-lg border-l-4 border-primary-light hover-lift">
                   <p className="text-primary-light font-medium text-sm mb-1">MY ROLE</p>
                   <p className="text-gray-300 text-sm">
                     {project.role}
                   </p>
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
-                    <span 
-                      key={tagIndex} 
+                    <span
+                      key={tagIndex}
                       className={`px-3 py-1 ${tag.bgColor} ${tag.color} rounded-full text-sm transition-all duration-300 hover:scale-110 hover:shadow-md cursor-default`}
                     >
                       {tag.name}
                     </span>
                   ))}
                 </div>
-                <div className="flex justify-end">
-                  <a href={project.repoUrl} className="btn-pulse text-primary-light font-medium hover:underline inline-flex items-center group transition-all duration-300">
+                <div className="flex justify-end gap-4">
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-pulse text-primary-light font-medium hover:underline inline-flex items-center group transition-all duration-300"
+                  >
+                    Live Demo
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                  <a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-pulse text-primary-light font-medium hover:underline inline-flex items-center group transition-all duration-300"
+                  >
                     View Project
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
