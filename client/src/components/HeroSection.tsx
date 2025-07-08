@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import resume from "../assets/resu_April.pdf"
+import resume from "../assets/Megharaj_Dandgavhal_Resume.pdf";
 import profilepic from "../assets/profile pic.jpg"
 
 const HeroSection: React.FC = () => {
