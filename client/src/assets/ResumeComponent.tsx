@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import resume from "../assets/resu_April.pdf";
+import resume from "../assets/Megharaj_Dandgavhal_Resume.pdf";
 
 interface ResumeComponentProps {
   className?: string;
