@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ResumeComponent from '../assets/ResumeComponent';
-import resume from "../assets/resu_April.pdf"
+import resume from "../assets/Megharaj_Dandgavhal_Resume.pdf";
 
 const AboutSection: React.FC = () => {
   const variants = {
